@@ -28,10 +28,10 @@ int main(int chingon, char* chingonas[]) {
         printf("Error.\n");
         return 0;
     }
-    if(strtol(chingonas[1],NULL,10) >= strtol(chingonas[2],NULL,10) || strtol(chingonas[2],NULL,10) >= strtol(chingonas[3],NULL,10)) {
+    /*if(strtol(chingonas[1],NULL,10) >= strtol(chingonas[2],NULL,10) || strtol(chingonas[2],NULL,10) >= strtol(chingonas[3],NULL,10)) {
         printf("Error.\n");
         return 0;
-    }
+    }*/
 
     long hour[3];
     long min[3];
@@ -48,6 +48,9 @@ int main(int chingon, char* chingonas[]) {
         
         hour[i-1] = strtol(temphour,NULL,10);
         min[i-1] = strtol(tempmin,NULL,10);
+        if(hour[i-1] < 8) {
+            hour[i-1] += 12;
+        }
     }
 
     long before[2];
@@ -62,6 +65,10 @@ int main(int chingon, char* chingonas[]) {
     SUB(8,0,before[0],before[1],after);
     // out = lunch_in + after
     ADD(hour[2],min[2],after[0],after[1],out);
+
+    if(out[0] > 12) {
+        out[0] -= 12;
+    }
 
     if(out[1] < 10) {
         printf("Clock out at %ld:0%ld\n",out[0],out[1]);
