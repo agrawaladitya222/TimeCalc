@@ -63,7 +63,11 @@ int main(int chingon, char* chingonas[]) {
     // out = lunch_in + after
     ADD(hour[2],min[2],after[0],after[1],out);
 
-    printf("Clock out at %ld:%ld\n",out[0],out[1]);
+    if(out[1] < 10) {
+        printf("Clock out at %ld:0%ld\n",out[0],out[1]);
+    } else {
+        printf("Clock out at %ld:%ld\n",out[0],out[1]);
+    }
     /*for(int i=1; i<chingon; i+=1) {
         printf("str: %s\tstrlen: %lu\n", chingonas[i], strlen(chingonas[i]));
     }*/
