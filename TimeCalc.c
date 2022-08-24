@@ -23,12 +23,12 @@ void ADD(long h1, long m1, long h2, long m2, long* dest) {
     }
 }
 
-int main(int chingon, char* chingonas[]) {
-    if(chingon != 4){
+int main(int argc, char* argcas[]) {
+    if(argc != 4){
         printf("Error.\n");
         return 0;
     }
-    /*if(strtol(chingonas[1],NULL,10) >= strtol(chingonas[2],NULL,10) || strtol(chingonas[2],NULL,10) >= strtol(chingonas[3],NULL,10)) {
+    /*if(strtol(argcas[1],NULL,10) >= strtol(argcas[2],NULL,10) || strtol(argcas[2],NULL,10) >= strtol(argcas[3],NULL,10)) {
         printf("Error.\n");
         return 0;
     }*/
@@ -36,12 +36,12 @@ int main(int chingon, char* chingonas[]) {
     long hour[3];
     long min[3];
 
-    for(int i=1; i<chingon; i+=1) {
+    for(int i=1; i<argc; i+=1) {
         char temphour[3]; char tempmin[3];
-        int ind = strlen(chingonas[i])-2;
+        int ind = strlen(argcas[i])-2;
         
-        memcpy(temphour, chingonas[i], ind);
-        memcpy(tempmin, &(chingonas[i][ind]), 2);
+        memcpy(temphour, argcas[i], ind);
+        memcpy(tempmin, &(argcas[i][ind]), 2);
 
         temphour[ind] = '\0';
         tempmin[2] = '\0';
@@ -75,8 +75,8 @@ int main(int chingon, char* chingonas[]) {
     } else {
         printf("Clock out at %ld:%ld\n",out[0],out[1]);
     }
-    /*for(int i=1; i<chingon; i+=1) {
-        printf("str: %s\tstrlen: %lu\n", chingonas[i], strlen(chingonas[i]));
+    /*for(int i=1; i<argc; i+=1) {
+        printf("str: %s\tstrlen: %lu\n", argcas[i], strlen(argcas[i]));
     }*/
 
     return 0;
